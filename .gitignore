@@ -1,0 +1,16 @@
+.env
+.env.*
+fastapi-backend/.env
+nextjs-frontend/.env
+nextjs-frontend/.env.*
+fastapi-backend/.venv/
+fastapi-backend/diagnostics/
+fastapi-backend/__pycache__/
+fastapi-backend/app/__pycache__/
+**/__pycache__/
+*.pyc
+node_modules/
+.next/
+dist/
+build/
+.DS_Store
