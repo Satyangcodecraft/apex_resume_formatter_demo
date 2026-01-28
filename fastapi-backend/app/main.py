@@ -695,3 +695,5 @@ async def render_resume(payload: RenderRequest = Body(...)):
                 "X-Diagnostics-Id": diagnostics_id,
             },
         )
+from mangum import Mangum
+handler = Mangum(app)
