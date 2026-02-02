@@ -13,6 +13,7 @@ from typing import Optional
 from fastapi import FastAPI, Body, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
+# from mangum import Mangum
 
 from pydantic import BaseModel
 from docx.opc.exceptions import PackageNotFoundError
@@ -695,5 +696,3 @@ async def render_resume(payload: RenderRequest = Body(...)):
                 "X-Diagnostics-Id": diagnostics_id,
             },
         )
-from mangum import Mangum
-handler = Mangum(app)
