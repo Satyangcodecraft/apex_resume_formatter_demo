@@ -118,7 +118,7 @@ export default function ReviewPage() {
   const [advancedOpen, setAdvancedOpen] = useState<boolean>(false);
 
   const [apiBase, setApiBase] = useState<string>(
-    process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000"
+    process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") || "/api"
   );
   const [diagnosticsId, setDiagnosticsId] = useState<string>("");
   const [requirementsNumber, setRequirementsNumber] = useState<string>("");

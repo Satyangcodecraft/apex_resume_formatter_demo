@@ -9,7 +9,7 @@ cp .env.example .env
 
 Set:
 
-- `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000`
+- `NEXT_PUBLIC_API_BASE_URL=/api`
 
 ## Run
 

@@ -647,7 +647,8 @@ async def extract_file(
 app.include_router(api_router)
 
 
-@app.post("/render-resume")
+
+@app.post("/api/render-resume")
 async def render_resume(payload: RenderRequest = Body(...)):
     diagnostics_id = (payload.diagnostics_id or "").strip() or uuid.uuid4().hex
     structured = payload.structured

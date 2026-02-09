@@ -28,7 +28,7 @@ export default function UploadPage() {
 
   const apiBase =
     process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ||
-    "http://localhost:8000";
+    "/api";
 
   const onDrop = async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
