@@ -10,7 +10,7 @@ from datetime import datetime, time, timedelta
 from zoneinfo import ZoneInfo
 from typing import Optional
 
-from fastapi import FastAPI, Body, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, APIRouter, Body, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 # from mangum import Mangum
@@ -429,6 +429,8 @@ def _augment_structured(
 
 app = FastAPI(title="Resume PDF SaaS Demo")
 
+api_router = APIRouter(prefix="/api")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[settings.frontend_origin],
@@ -571,7 +573,7 @@ async def process_file(
         )
 
 
-@app.post("/extract-file")
+@api_router.post("/extract-file")
 async def extract_file(
     file: UploadFile = File(...),
     willing_to_relocate: Optional[str] = Form(default=None),
@@ -640,6 +642,9 @@ async def extract_file(
             "diagnostics_id": diagnostics_id,
             "structured": final_json,
         }
+
+
+app.include_router(api_router)
 
 
 @app.post("/render-resume")

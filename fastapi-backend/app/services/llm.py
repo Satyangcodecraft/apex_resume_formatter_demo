@@ -12,7 +12,7 @@ from app.settings import settings
 
 
 def _llm_provider() -> str:
-    return (getattr(settings, "llm_provider", "openai") or "openai").strip().lower()
+    return (getattr(settings, "llm_provider", "openai") or "mistral").strip().lower()
 
 
 def _assert_llm_configured() -> None:
